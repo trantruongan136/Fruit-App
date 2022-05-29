@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:fruit_app/screens/NavBar.dart';
+import 'package:fruit_app/screens/nav_bar.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
