@@ -1,7 +1,8 @@
-import 'dart:ffi';
+
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fruit_app/constant.dart';
 import 'package:fruit_app/screens/home.dart';
 import 'package:fruit_app/screens/login_page.dart';
 
@@ -13,13 +14,13 @@ class SignUp extends StatelessWidget {
     final TextEditingController emailController = new TextEditingController();
     final TextEditingController passwordController = new TextEditingController();
     final TextEditingController passConfirmController = new TextEditingController();
-    final TextEditingController nameController = new TextEditingController();
-    final TextEditingController phoneController = new TextEditingController();
+
     String errorMessage = '';
 
     final GlobalKey<FormState> _key = GlobalKey<FormState>(); 
     User? _user = FirebaseAuth.instance.currentUser;
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.orange
       ),
@@ -47,9 +48,9 @@ class SignUp extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Sign Up',
+                      const Text('Sign Up',
                         style: TextStyle(
-                          color: Colors.orangeAccent[200],
+                          color: primaryColor,
                           fontSize: 50,
                           fontWeight: FontWeight.bold,
                           fontStyle: FontStyle.italic
@@ -142,7 +143,7 @@ class SignUp extends StatelessWidget {
                             ),  
                           ),
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.orangeAccent[200],
+                            primary: primaryColor,
                             // fixedSize: Size(327, 56),
                           ),
                         ),
@@ -165,9 +166,9 @@ class SignUp extends StatelessWidget {
                                 MaterialPageRoute(builder: (context) => Login(title: 'Login',))
                               );
                             },
-                            child: Text('Login',
+                            child: const Text('Login',
                               style: TextStyle(
-                                color: Colors.orangeAccent[200],
+                                color: primaryColor,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 15
                               ),

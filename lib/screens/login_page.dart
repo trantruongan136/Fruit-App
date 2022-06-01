@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fruit_app/constant.dart';
 import 'package:fruit_app/screens/home.dart';
 
 import 'package:fruit_app/screens/signup_page.dart';
@@ -21,8 +22,9 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.orange
+        primarySwatch: Colors.orange,
       ),
       home: Scaffold(
         body: Form(
@@ -53,7 +55,7 @@ class Login extends StatelessWidget {
                     children: [
                       Text('Login',
                         style: TextStyle(
-                          color: Colors.orangeAccent[200],
+                          color: primaryColor,
                           fontSize: 50,
                           fontWeight: FontWeight.bold,
                           fontStyle: FontStyle.italic
@@ -119,7 +121,7 @@ class Login extends StatelessWidget {
                           ),  
                         ),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.orangeAccent[200],
+                          primary: primaryColor,
                           fixedSize: const Size(327, 56),
                         ),
                       ),
@@ -143,7 +145,7 @@ class Login extends StatelessWidget {
                             },
                             child: Text('Sign Up',
                               style: TextStyle(
-                                color: Colors.orangeAccent[200],
+                                color: primaryColor,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 15
                               ),

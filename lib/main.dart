@@ -12,6 +12,7 @@ void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.removeAfter(initialization);
   runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: Introduction(),
   ));
 }

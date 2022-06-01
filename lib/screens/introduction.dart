@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_app/constant.dart';
 import 'login_page.dart';
 
 class Introduction extends StatefulWidget {
@@ -12,6 +13,7 @@ class _IntroductionState extends State<Introduction> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.orangeAccent[200]
       ),
@@ -22,7 +24,7 @@ class _IntroductionState extends State<Introduction> {
               Container(
                 width: double.infinity,
                 height: 469,
-                color: Colors.orangeAccent[200],
+                color: primaryColor,
                 child: Container(
                   margin: const EdgeInsets.only(top: 100),
                   child: const Image(
@@ -65,7 +67,7 @@ class _IntroductionState extends State<Introduction> {
                       },
                       child: const Text("Let’s Continue"),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.orangeAccent[200],
+                        primary: primaryColor,
                         fixedSize: const Size(327, 56),
                       ),
                     )
