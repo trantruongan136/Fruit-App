@@ -10,7 +10,9 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Home> with TickerProviderStateMixin {
+  late TabController _tabController = TabController(length: 4, vsync: this);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -86,7 +88,7 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        margin: const EdgeInsets.fromLTRB(20, 40, 0, 0),
+                        margin: const EdgeInsets.fromLTRB(20, 10, 0, 0),
                         child: const Text(
                           "Recommended Combo",
                           style: TextStyle(
@@ -109,7 +111,7 @@ class _HomeState extends State<Home> {
                                 color: primaryColor,
                               ),
                             )),
-                        margin: const EdgeInsets.fromLTRB(20, 40, 10, 0),
+                        margin: const EdgeInsets.fromLTRB(20, 10, 10, 0),
                       )
                     ],
                   ),
@@ -256,6 +258,328 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                       ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                    width: MediaQuery.of(context).size.width,
+                  ),
+                  Container(
+                    child: TabBar(
+                      controller: _tabController,
+                      tabs: const <Widget>[
+                        Tab(
+                          child: Text(
+                            "Hottest",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: darkBlueColor,
+                                fontFamily: "HellixBold",
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Tab(
+                          child: Text("Popular"),
+                        ),
+                        Tab(
+                          child: Text("New combo"),
+                        ),
+                        Tab(
+                          child: Text("Top"),
+                        ),
+                      ],
+                      //controller: ,
+                    ),
+                  ),
+                  Expanded(
+                    child: TabBarView(
+                      children: [
+                        ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => Detail()));
+                              },
+                              child: Container(
+                                margin: EdgeInsets.all(20),
+                                decoration: BoxDecoration(
+                                    color: greyColor,
+                                    borderRadius: BorderRadius.circular(20.0)),
+                                width: 165,
+                                height: 195,
+                                child: Stack(
+                                  children: [
+                                    Positioned(
+                                      child: Image.asset(
+                                        "lib/assets/Glowing-Berry-Fruit-Salad.png",
+                                        width: 200,
+                                        height: 200,
+                                      ),
+                                      top: -30,
+                                      left: -15,
+                                    ),
+                                    const Positioned(
+                                      child: Text(
+                                        "Berry mango combo",
+                                        style: TextStyle(
+                                            fontFamily: "HellixBold",
+                                            color: darkBlueColor,
+                                            fontSize: 17),
+                                      ),
+                                      top: 135,
+                                      left: 10,
+                                    ),
+                                    Positioned(
+                                      child: IconButton(
+                                        onPressed: () {
+                                          print('object');
+                                        },
+                                        icon: Icon(Icons.favorite_border),
+                                        color: primaryColor,
+                                      ),
+                                      top: 0,
+                                      left: 115,
+                                    ),
+                                    const Positioned(
+                                      child: Text(
+                                        "\$ 8.000",
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: primaryColor),
+                                      ),
+                                      top: 160,
+                                      left: 10,
+                                    ),
+                                    Positioned(
+                                      child: IconButton(
+                                        onPressed: () {},
+                                        icon: const Icon(Icons.add),
+                                        color: primaryColor,
+                                      ),
+                                      top: 145,
+                                      left: 120,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => Detail()));
+                              },
+                              child: Container(
+                                margin: EdgeInsets.all(20),
+                                decoration: BoxDecoration(
+                                    color: greyColor,
+                                    borderRadius: BorderRadius.circular(20.0)),
+                                width: 165,
+                                height: 195,
+                                child: Stack(
+                                  children: [
+                                    Positioned(
+                                      child: Image.asset(
+                                        "lib/assets/Glowing-Berry-Fruit-Salad.png",
+                                        width: 200,
+                                        height: 200,
+                                      ),
+                                      top: -30,
+                                      left: -15,
+                                    ),
+                                    const Positioned(
+                                      child: Text(
+                                        "Berry mango combo",
+                                        style: TextStyle(
+                                            fontFamily: "HellixBold",
+                                            color: darkBlueColor,
+                                            fontSize: 17),
+                                      ),
+                                      top: 135,
+                                      left: 10,
+                                    ),
+                                    Positioned(
+                                      child: IconButton(
+                                        onPressed: () {
+                                          print('object');
+                                        },
+                                        icon: Icon(Icons.favorite_border),
+                                        color: primaryColor,
+                                      ),
+                                      top: 0,
+                                      left: 115,
+                                    ),
+                                    const Positioned(
+                                      child: Text(
+                                        "\$ 8.000",
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: primaryColor),
+                                      ),
+                                      top: 160,
+                                      left: 10,
+                                    ),
+                                    Positioned(
+                                      child: IconButton(
+                                        onPressed: () {},
+                                        icon: const Icon(Icons.add),
+                                        color: primaryColor,
+                                      ),
+                                      top: 145,
+                                      left: 120,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => Detail()));
+                              },
+                              child: Container(
+                                margin: EdgeInsets.all(20),
+                                decoration: BoxDecoration(
+                                    color: greyColor,
+                                    borderRadius: BorderRadius.circular(20.0)),
+                                width: 165,
+                                height: 195,
+                                child: Stack(
+                                  children: [
+                                    Positioned(
+                                      child: Image.asset(
+                                        "lib/assets/Glowing-Berry-Fruit-Salad.png",
+                                        width: 200,
+                                        height: 200,
+                                      ),
+                                      top: -30,
+                                      left: -15,
+                                    ),
+                                    const Positioned(
+                                      child: Text(
+                                        "Berry mango combo",
+                                        style: TextStyle(
+                                            fontFamily: "HellixBold",
+                                            color: darkBlueColor,
+                                            fontSize: 17),
+                                      ),
+                                      top: 135,
+                                      left: 10,
+                                    ),
+                                    Positioned(
+                                      child: IconButton(
+                                        onPressed: () {
+                                          print('object');
+                                        },
+                                        icon: Icon(Icons.favorite_border),
+                                        color: primaryColor,
+                                      ),
+                                      top: 0,
+                                      left: 115,
+                                    ),
+                                    const Positioned(
+                                      child: Text(
+                                        "\$ 8.000",
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: primaryColor),
+                                      ),
+                                      top: 160,
+                                      left: 10,
+                                    ),
+                                    Positioned(
+                                      child: IconButton(
+                                        onPressed: () {},
+                                        icon: const Icon(Icons.add),
+                                        color: primaryColor,
+                                      ),
+                                      top: 145,
+                                      left: 120,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => Detail()));
+                              },
+                              child: Container(
+                                margin: EdgeInsets.all(20),
+                                decoration: BoxDecoration(
+                                    color: greyColor,
+                                    borderRadius: BorderRadius.circular(20.0)),
+                                width: 165,
+                                height: 195,
+                                child: Stack(
+                                  children: [
+                                    Positioned(
+                                      child: Image.asset(
+                                        "lib/assets/Glowing-Berry-Fruit-Salad.png",
+                                        width: 200,
+                                        height: 200,
+                                      ),
+                                      top: -30,
+                                      left: -15,
+                                    ),
+                                    const Positioned(
+                                      child: Text(
+                                        "Berry mango combo",
+                                        style: TextStyle(
+                                            fontFamily: "HellixBold",
+                                            color: darkBlueColor,
+                                            fontSize: 17),
+                                      ),
+                                      top: 135,
+                                      left: 10,
+                                    ),
+                                    Positioned(
+                                      child: IconButton(
+                                        onPressed: () {
+                                          print('object');
+                                        },
+                                        icon: Icon(Icons.favorite_border),
+                                        color: primaryColor,
+                                      ),
+                                      top: 0,
+                                      left: 115,
+                                    ),
+                                    const Positioned(
+                                      child: Text(
+                                        "\$ 8.000",
+                                        style: TextStyle(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: primaryColor),
+                                      ),
+                                      top: 160,
+                                      left: 10,
+                                    ),
+                                    Positioned(
+                                      child: IconButton(
+                                        onPressed: () {},
+                                        icon: const Icon(Icons.add),
+                                        color: primaryColor,
+                                      ),
+                                      top: 145,
+                                      left: 120,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Text('2'),
+                        Text('3'),
+                        Text('4'),
+                      ],
+                      controller: _tabController,
                     ),
                   )
                 ],
